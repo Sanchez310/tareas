@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tiendas de Accesorios para Mascotas</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="script.js">
+  <link rel="stylesheet" href="/ayuda.json/tienda_productos.json">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#">PETESSENTIALS</a> 
+      <a href="#" onclick="openModal()">Categorías</a>
+      <a href="/inicio/inicio.html">Inicio de sesión</a>
+      <a href="/inicio/crear.html">Crear cuenta</a>
+
+      <script>
+        function openModal() {
+          const modal = document.getElementById("modal");
+          modal.style.display = "block";
+        }
+    
+        function closeModal() {
+          const modal = document.getElementById("modal");
+          modal.style.display = "none";
+        }
+    
+        function redirectToCategory(category) {
+          // Aquí puedes definir las acciones que deseas realizar al seleccionar cada categoría
+          // Por ejemplo, redireccionar a una página específica o realizar alguna operación.
+          switch (category) {
+            case "Gatos":
+              window.location.href = "/vistas/Animagood.html";
+              break;
+            case "Perros":
+              window.location.href = "/vistas/Hello_Pets.html";
+              break;
+            case "Hamsters":
+              window.location.href = "/vistas/Pets2go.html";
+              break;
+            case "Aves":
+              window.location.href = "/vistas/FeatherFly.html";
+              break;
+            default:
+              // Acción por defecto en caso de categoría desconocida
+              console.log("Categoría no reconocida.");
+          }
+    
+          // Cerramos el modal después de seleccionar una categoría (opcional)
+          closeModal();
+        }
+      </script>
+    
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <h2>Categorías</h2>
+          <ul>
+            <li><a href="#" onclick="redirectToCategory('Gatos')">Gatos</a></li>
+            <li><a href="#" onclick="redirectToCategory('Perros')">Perros</a></li>
+            <li><a href="#" onclick="redirectToCategory('Hamsters')">Hamsters</a></li>
+            <li><a href="#" onclick="redirectToCategory('Aves')">Aves</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <script>
+        // Obtener referencia a los elementos del DOM
+        const loginLink = document.getElementById('login-link');
+        const loginForm = document.getElementById('login-form');
+      
+        // Agregar un evento de clic al enlace "Inicia sesión"
+        loginLink.addEventListener('click', function(event) {
+          event.preventDefault(); // Evitar que el enlace siga el href '#'
+      
+          // Mostrar u ocultar el formulario de inicio de sesión
+          if (loginForm.style.display === 'none') {
+            loginForm.style.display = 'block';
+          } else {
+            loginForm.style.display = 'none';
+          }
+        });
+      
+        // Evento para enviar el formulario (esto es opcional)
+        const loginFormSubmit = document.querySelector('#login-form form');
+        loginFormSubmit.addEventListener('submit', function(event) {
+          event.preventDefault();
+          const email = document.getElementById('email').value;
+          const password = document.getElementById('password').value;
+          // Aquí puedes realizar las acciones para el inicio de sesión, por ejemplo, enviar los datos al servidor.
+          // Por ahora, solo mostraremos un mensaje con el correo electrónico en el elemento con id "user-account".
+          document.getElementById('user-account').textContent = `¡Bienvenido, ${email}!`;
+        });
+      </script>
+    </nav>
+  </header>
+  <main>
+    <a href="/vistas/Hello_Pets.html" class="store-box">
+      <img src="/hello petss.png" alt="">
+    </a>
+    <a href="/vistas/Chops_box.html" class="store-box">
+      <img src="/chops box.png" alt="">
+    </a>
+    <a href="/vistas/Pets2go.html" class="store-box">
+      <img src="/imagenes/Pets2go.png" alt="">
+    </a> 
+    <a href="/vistas/Petco.html" class="store-box">
+    <img src="/imagenes/petco.png" alt="">
+  </a>
+    <a href="/vistas/Publidog.html" class="store-box">
+    <img src="/imagenes/Publidog.jpg" alt="">
+  </a>
+    <a href="/vistas/Animagood.html" class="store-box">
+    <img src="/imagenes/Animagood.jpg" alt="">
+  </a>
+    <a href="vistas/Hammy_Shop.html" class="store-box">
+    <img src="/imagenes/Hammy Shop.jpg" alt="">
+  </a>
+    <a href="/vistas/FeatherFly.html" class="store-box">
+    <img src="/imagenes/FeatherFly.jpg" alt="">
+  </a>
+    <a href="/vistas/Kitty_Shop.html" class="store-box">
+      <img src="/imagenes/kityy.jpg" alt="">
+  </a>
+    <a href="/vistas/Pooch_paradise.html" class="store-box">
+      <img src="/imagenes/Pooch Paradise.jpg" alt="">
+  </a>
+    <!-- Agrega más tiendas con los enlaces adecuados -->
+  </main>
+
+  <section id="productos">
+    <p style="text-align: center;">Compra por mascotas</p> <br>
+    <div class="category-circle">
+      <img src="imag gato.png" alt="Gato">
+      <p>Gatos</p>
+    </div>
+    <div class="category-circle">
+      <img src="imag perro.png" alt="Perro">
+      <p>Perros</p> 
+    </div>
+    <div class="category-circle">
+      <img src="imag hamster.png" alt="Hamster">
+      <br>
+      <p>Hamsters</p>
+    </div>
+    <div class="category-circle">
+      <img src="imag ave.png" alt="Aves">
+      <p>Aves</p>
+    </div>
+    <br> <br>
+    <button type="button" class="principal" onclick="mostrarProductosDestacados()">Productos Destacados</button>
+<br> <br> 
+<section id="productosDestacados">
+    <button type="button" class="collares" id="collares" style="display: none;">Collares</button> 
+    <button type="button" class="juguetes" id="juguetes" style="display: none;">Juguetes interactivos</button> 
+    <button type="button" class="camas" id="camas" style="display: none;">Camas</button> 
+    <button type="button" class="ropa" id="ropa" style="display: none;">Ropa y accesorios</button>
+    <button type="button" class="higiene" id="higiene" style="display: none;">Higiene y cuidado</button>
+  </section>
+  <br> <br> 
+  
+  <script>
+    function mostrarProductosDestacados() {
+      var productosDestacados = document.getElementById("productosDestacados");
+      var collares = document.getElementById("collares");
+      var juguetes = document.getElementById("juguetes");
+      var camas = document.getElementById("camas");
+      var higiene = document.getElementById("higiene");
+      var ropa = document.getElementById("ropa");
+  
+      if (productosDestacados.style.display === "none") {
+        productosDestacados.style.display = "inline-block";
+        collares.style.display = "inline-block";
+        juguetes.style.display = "inline-block";
+        camas.style.display = "inline-block";
+        ropa.style.display = "inline-block";
+        higiene.style.display = "inline-block";
+      } else {
+        productosDestacados.style.display = "none";
+        collares.style.display = "none";
+        juguetes.style.display = "none";
+        camas.style.display = "none";
+        ropa.style.display = "none";
+        higiene.style.display = "none";
+      }
+    }
+  </script>
+  <p>Productos recomendados</p>
+  <main>
+    <div class="product-list">
+      <div class="product-box">
+        <img src="dispensador agua.png" alt="Producto 1">
+        <h3>Fuente dispensadora de agua</h3>
+        <p>Fuente de agua Irfora Fuente de agua automática inteligente para perros y gatos, dispensador de agua Irfora Fuente de agua</p>
+        <p>Precio: $658.90</p>
+      </div>
+      <div class="product-box">
+        <img src="ropa navideña.png" alt="Ropa navideña">
+        <h3>Producto 2</h3>
+        <p>Elaborada a base de algodon ideal para la piel de tus mascotas.</p>
+        <p>Precio: $100</p>
+      </div>
+      <div class="product-box">
+        <img src="comida gatos.png" alt="Producto 3">
+        <h3>Alimento para gatos 1.5 kg</h3>
+        <p>Purina Cat Chow ofrece los nutrientes que tu gato necesita para mantenerse bello y saludable. Contiene Pescado, rico en Omega 3 que ayudan a tener una piel y un pelo saludables.</p>
+        <p>Precio: $450.00</p>
+      </div>
+      <div class="product-box">
+        <img src="columpio.png" alt="Producto 4">
+        <h3>Colgante</h3>
+        <p>Columpio colorido ideal para aves</p>
+        <p>Precio: $30.00</p>
+      </div>
+      <div class="product-box">
+        <img src="casa.png" alt="Producto 5">
+        <h3>Casa para roedores</h3>
+        <p>Casa elaborada a base de madera de doble piso, ideal para conejos</p>
+        <p>Precio: $700.00</p>
+      </div>
+      <div class="product-box">
+        <img src="arenero.png" alt="Producto 6">
+        <h3>Arenero ideal para gatos</h3>
+        <p>Caja de arena plegable portátil para gatos, orinal grande completamente cerrado, inodoro, entrada frontal, salida superior con tapa, pala para arena</p>
+        <p>Precio: $1000.00</p>
+      </div>
+    </div>
+  </main>
+
+  </section>
+  
+  <footer>
+    <section id="contacto" class="contacto-container">
+      <div class="columna">
+        <h2>Contacto</h2>
+        <p>¡Contáctanos para más información!</p>
+        <p>Teléfono: 999-456-789</p>
+        <p>Email: info@petessentials.com</p>
+      </div>
+      <div class="columna">
+        <p>&copy; 2023 PetEssentials. Todos los derechos reservados.</p>
+      </div>
+    </section>
+  </footer>  
+</body>
+</html>
